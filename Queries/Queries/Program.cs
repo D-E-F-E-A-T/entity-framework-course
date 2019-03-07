@@ -1,5 +1,4 @@
-﻿using Queries.Models;
-using System;
+﻿using System;
 using System.Linq;
 
 namespace Queries
@@ -10,22 +9,19 @@ namespace Queries
         {
             PlutoContext context = new PlutoContext();
 
-            // LINQ syntax
-            var query = from course in context.Courses
-                        where course.Name.ToLower().Contains("c#")
-                        orderby course.Name
-                        select course;
+            var query = from c in context.Courses
+                        group c by c.Level into g
+                        select g;
 
-            foreach (Course course in query)
-                Console.WriteLine(course.Name);
+            foreach (var group in query)
+            {
+                Console.WriteLine($"Level {group.Key} ({group.Count()})");
 
-            // Extension methods
-            var courses = context.Courses
-                .Where(course => course.Name.ToLower().Contains("c#"))
-                .OrderBy(course => course.Name);
+                foreach (var course in group)
+                    Console.WriteLine($"\t{course.Name}");
 
-            foreach (Course course in courses)
-                Console.WriteLine(course.Name);
+                Console.WriteLine();
+            }
         }
     }
 }
