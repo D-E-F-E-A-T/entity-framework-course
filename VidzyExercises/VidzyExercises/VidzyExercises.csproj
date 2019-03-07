@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityConfigurations\GenreConfiguration.cs" />
+    <Compile Include="EntityConfigurations\TagConfiguration.cs" />
+    <Compile Include="EntityConfigurations\VideoConfiguration.cs" />
     <Compile Include="Migrations\201903010107165_InitialModel.cs" />
     <Compile Include="Migrations\201903010107165_InitialModel.Designer.cs">
       <DependentUpon>201903010107165_InitialModel.cs</DependentUpon>
@@ -66,9 +69,18 @@
     <Compile Include="Migrations\201903010120078_AddClassificationToVideosTable.Designer.cs">
       <DependentUpon>201903010120078_AddClassificationToVideosTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903070228248_OverrideConventionsForVideosAndGenresTable.cs" />
+    <Compile Include="Migrations\201903070228248_OverrideConventionsForVideosAndGenresTable.Designer.cs">
+      <DependentUpon>201903070228248_OverrideConventionsForVideosAndGenresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903070240115_CreatedTagsTableAndAddManyToManyRelationToVideos.cs" />
+    <Compile Include="Migrations\201903070240115_CreatedTagsTableAndAddManyToManyRelationToVideos.Designer.cs">
+      <DependentUpon>201903070240115_CreatedTagsTableAndAddManyToManyRelationToVideos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classification.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,6 +102,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903010120078_AddClassificationToVideosTable.resx">
       <DependentUpon>201903010120078_AddClassificationToVideosTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903070228248_OverrideConventionsForVideosAndGenresTable.resx">
+      <DependentUpon>201903070228248_OverrideConventionsForVideosAndGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903070240115_CreatedTagsTableAndAddManyToManyRelationToVideos.resx">
+      <DependentUpon>201903070240115_CreatedTagsTableAndAddManyToManyRelationToVideos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
