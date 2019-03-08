@@ -8,7 +8,89 @@ namespace Queries
         static void Main(string[] args)
         {
             PlutoContext context = new PlutoContext();
-            GroupJoinExample(context);
+        }
+
+        private static void CrossJoinExtensionExample(PlutoContext context)
+        {
+            var query = context.Authors.SelectMany(a => context.Courses, (a, c) => new
+            {
+                AuthorName = a.Name,
+                CourseName = c.Name
+            });
+
+            foreach (var item in query)
+                Console.WriteLine($"{item.AuthorName}, {item.CourseName}");
+        }
+
+        private static void GroupJoinExtensionExample(PlutoContext context)
+        {
+            var query = context.Authors.GroupJoin(context.Courses,
+                a => a.Id,
+                c => c.AuthorId,
+                (a, c) => new
+                {
+                    Author = a,
+                    CoursesCount = c.Count()
+                });
+
+            foreach (var group in query)
+                Console.WriteLine($"{group.Author.Name} ({group.CoursesCount})");
+        }
+
+        private static void InnerJoinExtensionExample(PlutoContext context)
+        {
+            var query = context.Courses.Join(context.Authors,
+                c => c.AuthorId,
+                a => a.Id,
+                (c, a) => new
+                {
+                    AuthorName = a.Name,
+                    CourseName = c.Name,
+                });
+
+            foreach (var item in query)
+                Console.WriteLine($"{item.AuthorName}, {item.CourseName}");
+        }
+
+        private static void GroupExtensionExample(PlutoContext context)
+        {
+            var query = context.Courses.GroupBy(c => c.Level);
+
+            foreach (var group in query)
+            {
+                Console.WriteLine($"Level {group.Key} ({group.Count()}):");
+
+                foreach (var course in group)
+                    Console.WriteLine($"\t{course.Name}");
+
+                Console.WriteLine();
+            }
+        }
+
+        private static void DistinctExtensionExample(PlutoContext context)
+        {
+            var query = context.Courses
+                .Where(c => c.Level == 1)
+                .SelectMany(c => c.Tags)
+                .Distinct();
+
+            foreach (var tag in query)
+                Console.WriteLine(tag.Name);
+        }
+
+        private static void BasicExtensionsExample(PlutoContext context)
+        {
+            var query = context.Courses
+                .Where(c => c.Level == 1)
+                .OrderBy(c => c.Author.Name)
+                .Select(c => new
+                {
+                    CourseName = c.Name,
+                    AuthorName = c.Author.Name
+                });
+
+            foreach (var item in query)
+                Console.WriteLine($"{item.AuthorName}, {item.CourseName}");
         }
 
         private static void CrossJoinExample(PlutoContext context)
