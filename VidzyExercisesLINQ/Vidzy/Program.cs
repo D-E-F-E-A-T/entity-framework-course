@@ -8,7 +8,6 @@ namespace Vidzy
         static void Main(string[] args)
         {
             VidzyContext context = new VidzyContext();
-            ListOfGenresAndNumberOfVideosTheyIncludeSortedByTheNumberOfVideos(context);
         }
 
         private static void ListOfGenresAndNumberOfVideosTheyIncludeSortedByTheNumberOfVideos(VidzyContext context)

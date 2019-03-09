@@ -62,6 +62,7 @@
     <Compile Include="Models\Tag.cs" />
     <Compile Include="PlutoContext.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Program.LINQExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

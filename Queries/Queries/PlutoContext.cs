@@ -8,6 +8,7 @@ namespace Queries
     {
         public PlutoContext() : base("name=PlutoContext")
         {
+            // Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<Author> Authors { get; set; }
