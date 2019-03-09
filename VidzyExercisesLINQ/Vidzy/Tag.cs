@@ -4,13 +4,13 @@ namespace Vidzy
 {
     public class Tag
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public ICollection<Video> Videos { get; private set; }
-
-        public Tag()
+		public Tag()
         {
             Videos = new HashSet<Video>();
         }
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public virtual ICollection<Video> Videos { get; private set; }
     }
 }
