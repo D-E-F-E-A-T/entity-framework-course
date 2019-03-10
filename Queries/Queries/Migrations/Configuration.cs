@@ -1,6 +1,7 @@
 namespace Queries.Migrations
 {
-    using Queries.Models;
+    using Queries.Core.Domain;
+    using Queries.Persistence;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Data.Entity.Migrations;

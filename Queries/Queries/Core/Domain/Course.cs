@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Queries.Models
+namespace Queries.Core.Domain
 {
     public class Course
     {

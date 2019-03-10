@@ -50,21 +50,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityConfigurations\CourseConfiguration.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Repositories\IAuthorRepository.cs" />
+    <Compile Include="Core\Repositories\ICourseRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Persistence\EntityConfigurations\CourseConfiguration.cs" />
     <Compile Include="Migrations\201903071556511_InitialModel.cs" />
     <Compile Include="Migrations\201903071556511_InitialModel.Designer.cs">
       <DependentUpon>201903071556511_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Author.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\Cover.cs" />
-    <Compile Include="Models\Tag.cs" />
-    <Compile Include="PlutoContext.cs" />
-    <Compile Include="Program.CRUDExample.cs" />
+    <Compile Include="Core\Domain\Author.cs" />
+    <Compile Include="Core\Domain\Course.cs" />
+    <Compile Include="Core\Domain\Cover.cs" />
+    <Compile Include="Core\Domain\Tag.cs" />
+    <Compile Include="Persistence\Repositories\AuthorRepository.cs" />
+    <Compile Include="Persistence\Repositories\CourseRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="Persistence\PlutoContext.cs" />
+    <Compile Include="Exercises\Program.CRUDExample.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Program.LINQExamples.cs" />
-    <Compile Include="Program.LoadingExamples.cs" />
+    <Compile Include="Exercises\Program.LINQExamples.cs" />
+    <Compile Include="Exercises\Program.LoadingExamples.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

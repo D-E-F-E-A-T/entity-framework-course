@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Queries.Persistence;
+using System;
 using System.Linq;
 
 namespace Queries

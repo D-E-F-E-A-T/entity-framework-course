@@ -1,7 +1,8 @@
-﻿using Queries.Models;
+﻿using Queries.Core;
+using Queries.Core.Domain;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Queries.EntityConfigurations
+namespace Queries.Persistence.EntityConfigurations
 {
     public class CourseConfiguration : EntityTypeConfiguration<Course>
     {

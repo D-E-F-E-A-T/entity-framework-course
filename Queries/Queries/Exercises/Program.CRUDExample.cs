@@ -1,4 +1,6 @@
-﻿using Queries.Models;
+﻿using Queries.Core;
+using Queries.Core.Domain;
+using Queries.Persistence;
 using System;
 using System.Data.Entity;
 using System.Linq;
